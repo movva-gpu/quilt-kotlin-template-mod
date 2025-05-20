@@ -1,11 +1,11 @@
 {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "com.example",
-		"id": "example_mod",
+		"group": "${group}",
+		"id": "${id}",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
+			"name": "Example Mod",
 			"description": "A short description of your mod.",
 			"contributors": {
 				"Your name here": "Owner"
@@ -15,33 +15,37 @@
 				"issues": "https://github.com/QuiltMC/quilt-kotlin-template-mod/issues",
 				"sources": "https://github.com/QuiltMC/quilt-kotlin-template-mod"
 			},
-			"icon": "assets/example_mod/icon.png"
+			"icon": "assets/${id}/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
 			"init": {
 				"adapter": "kotlin",
-				"value": "com.example.example_mod.ExampleMod"
+				"value": "${group}.${id}.ExampleMod"
+			},
+			"fabric-datagen": {
+				"adapter": "kotlin",
+				"value": "${group}.${id}.ExampleModDataGenerator"
 			}
 		},
 		"depends": [
 			{
 				"id": "quilt_loader",
-				"versions": ">=0.28.1"
+				"versions": ">=0.29-"
 			},
 			{
 				"id": "quilted_fabric_api",
-				"versions": ">=7.0.2"
+				"versions": ">=10.0.0-"
 			},
 			{
 				"id": "qkl",
-				"versions": ">=2.1.0"
+				"versions": ">=4.0.0"
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.20"
+				"versions": ">=1.20.6"
 			}
 		]
 	},
-	"mixin": "example_mod.mixins.json"
+	"mixin": "${id}.mixins.json"
 }
